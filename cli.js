@@ -3,7 +3,6 @@ import moment from "moment-timezone";
 import minimist from "minimist";
 import fetch from "node-fetch";
 const timezone = moment.tz.guess()
-const mini = require('minimist')
 var input = mini(process.argv.slice(2))
 if (input.h){
     let message = 'Usage: galosh.js [options] -[n|s] LATITUDE -[e|w] LONGITUDE -z TIME_ZONE' +
