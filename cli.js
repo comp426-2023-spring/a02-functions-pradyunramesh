@@ -17,9 +17,9 @@ if (input.h){
     process.exit(0);
 }
 let latitude = (-1) * input.w || input.e;
-latitude = latitude.toFixed(2);
+latitude = Number(latitude).toFixed(2);
 let longitude = (-1) * input.s || input.n;
-longitude = longitude.toFixed(2);
+longitude = Number(longitude).toFixed(2);
 const response_api = await fetch("https://api.open-meteo.com/v1/forecast?latitude=" + latitude + "&longitude=" + longitude + "&timezone=" + timezone + "&daily=precipitation_hours");
 const data = await response_api.json();
 const days = input.d;
