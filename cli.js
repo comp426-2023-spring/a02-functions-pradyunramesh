@@ -1,4 +1,7 @@
 #!/usr/bin/env node
+import moment from "moment-timezone";
+import minimist from "minimist";
+import fetch from "node-fetch";
 const timezone = moment.tz.guess()
 const mini = require('minimist')
 var input = mini(process.argv.slice(2))
