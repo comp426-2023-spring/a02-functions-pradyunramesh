@@ -7,6 +7,7 @@ import process from 'process';
 const timezone = moment.tz.guess()
 var input = minimist(process.argv.slice(2))
 if (input.h){
+  //Message
     let message = 'Usage: galosh.js [options] -[n|s] LATITUDE -[e|w] LONGITUDE -z TIME_ZONE' +
     '-h            Show this help message and exit.' + 
     '-n, -s        Latitude: N positive; S negative.' +
@@ -18,9 +19,10 @@ if (input.h){
     process.exit(0);
 }
 let latitude = (-1) * input.w || input.e;
-latitude = Number(latitude).toFixed(2);
+latitude = Number(latitude).toFixed(2); //Fix to 2 decimal places
 let longitude = (-1) * input.s || input.n;
-longitude = Number(longitude).toFixed(2);
+longitude = Number(longitude).toFixed(2); //Fix to 2 decimal places
+//Use api call function
 const response_api = await fetch("https://api.open-meteo.com/v1/forecast?latitude=" + latitude + "&longitude=" + longitude + "&timezone=" + timezone + "&daily=precipitation_hours");
 const data = await response_api.json();
 const days = input.d;
